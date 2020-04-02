@@ -1,0 +1,122 @@
+﻿Pour cet exercice il vous sera demandé de factorisé au maximum votre code.
+L'utilisation de Class et Objet est bien évidemment obligatoire.
+Cet exercice nécéssitera plusieurs jour pour déployer notre site.
+
+
+
+1. Créez une base de donnée video et importez le fichier movies_full.sql
+
+2. Créez une première page index.php qui contiendra :
+    - utilisez un même thème sur https://bootswatch.com/ qui sera utilisé sur tout le site.
+    - un menu(nav bootstrap) unique pour tout le site
+    - un main
+    - et un footer unique pour tout le site
+
+    Le menu devra contenir les liens suivants :
+    - "Tous les films" qui sera un lien sur la page index.php
+    - "Mes films préférés" qui sera un lien vers une page user_pref.php
+    - "Incrivez-Vous" qui sera un lien vers une page registration.php
+    - "Connectez-Vous" qui sera un lien vers une page connect.php
+
+    Le main devra contenir une liste des films contenus dans la table movies_full
+    - ces films ne seront affichés que par tranche de 20 fiches qui ne contiendrons que les 
+      infos suivantes : title, year, genres, plot(limité à 50 caractères)
+      ainsi qu'un liens vers l'url suivante "movie.php" avec en variable GET ?id=id_movie
+    - la liste de ces filmes devra etre triée par par ordre alpha à partir de la colonne title
+    Option1:
+    - sous cette premiere liste de 20 films vous devrez créer un système de navigation type :
+      "<< < 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 > >>"
+      qui permettra d'acceder au 20 fiches suivantes/précédantes etc...
+    Option2:
+    - à partir de l'event scroll de javaScript et Ajax, faites apparaître 20 nouvelles fiches film sous 
+      les 20 premières.
+
+    Le footer devra contenir le sitemap de notre site.
+
+----------------------------------------  J2 -----------------------------------------------------------
+
+
+3. Créez une page movie.php qui contiendra :
+    - un menu(nav bootstrap) unique pour tout le site
+    - un main
+    - et un footer unique pour tout le site
+
+    Le main contiendra la fiche complète du film séléctionné par l'utilisateur (inscrit ou non)
+    à partir de la variable GET id transmise par index.php
+
+4. créez une nouvelle table users qui contiendra les colonnes suivante :
+    - id_users
+    - pseudo
+    - mail (qui fera office de login)
+    - password (hash)
+    - role ENUM('simple_user','contributor','admin')
+    - avatar
+    - reg_date (DATE)
+
+5. créez une nouvelle page registration.php qui contiendra :
+    - un menu(nav bootstrap) unique pour tout le site
+    - un main
+    - et un footer unique pour tout le site
+
+    Le main contiendra 2 formulaires :
+    - le premier "Déja-inscrit? Connectez-vous." contiendra deux champs login, password et un bouton/input submit
+      qui renverra l'utilisateur en cas de réussite sur la page index.php.
+      En cas d'echec l'utilisateur sera informé de l'erreur gérée.
+    - le second sera un formulaire d'inscription qui comprendra les champs suivants :
+      pseudo, mail, password, confirm_password et avatar (pas de champ role!)
+      ainsi qu'un bouton/input submit qui renverra l'utilisateur en cas de réussite sur la page index.php.
+      En cas d'echec l'utilisateur sera informé de l'erreur gérée.
+      En cas de réussite, le reg_date sera géré automatiquement et le role sera automatiquement 'simple_user' et l'utilisateur
+      sera automatiquement renvoyé sur la page index.php
+
+    Option:
+      En cas de réussite pour les deux formumlaires, le menu unique devra sur toutes les pages afficher 
+      le pseudo de l'utilisateur ainsi que son avatar(au format adéquat) et les liens "Incrivez-Vous" et
+      "Connectez-Vous" devront disparaitre.
+
+6. créez une nouvelle page connect.php qui contiendra :
+    - un menu(nav bootstrap) unique pour tout le site
+    - un main
+    - et un footer unique pour tout le site
+
+    Le main devra contenir le MEME formulaire de connexion que celui de registration.php
+    Et gerer les mêmes comportement echec/reussite (option comprise).
+
+7. Créez une nouvelle page user_pref.php qui contiendra :
+    - un menu(nav bootstrap) unique pour tout le site
+    - un main
+    - et un footer unique pour tout le site
+
+    Le main devra contenir :
+    la possibilité pour l'utilisateur de selectionner des films par :
+    - genres
+    - title
+    - year
+    - directors
+    - cast
+    - writers
+    La possibilité d'écrire de nouvelles fiches film à partir d'un formulaire dédié.
+    Ces fiches devront êtres stoquées dans une table temporaire crée par vous-même à cet effet et ne devront 
+    pas apparaître dans la liste de la table movies_full.
+
+8. Sur la page user_ref.php :
+    Dans la table users vous devrez créer un utilisateur dont le role sera "admin".
+    Ce dernier aura accès à une liste de tous les utilisateurs et pourra :
+    - changer leur role en admin ou contributor.
+    - supprimer des utilisateurs
+    Ce dernier aura accès à une liste de toutes les fiches film temporaires et pourra :
+    - les supprimer
+    - les modifier
+    - les acccepter (suppression dans la table temporaire et ajout dans la table movies_full)
+    Ce dernier aura accès à la liste de toutes les fiches films (movies_full) et pourra :
+    - les supprimer
+    - les modifier
+    Dans la table users vous devrez créer un utilisateur dont le role sera "contributor".
+    Ce dernier aura accès à une liste de toutes les fiches film temporaires et pourra :
+    - les supprimer
+    - les modifier
+    - les acccepter (suppression dans la table temporaire et ajout dans la table movies_full)
+    Ce dernier aura accès à la liste de toutes les fiches films (movies_full) et pourra :
+    - les supprimer
+    - les modifier   
+
