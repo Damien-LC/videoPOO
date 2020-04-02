@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded",function(){
+    console.log("bonjour");
     let limite = 20;
     const main = document.getElementsByTagName('main')[0];
     window.onscroll = function(event) {
