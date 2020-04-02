@@ -1,0 +1,41 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    background-color: #073642;
+    text-align: center;
+    color: #ffffff;
+}
+
+.index {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    width: 300px;
+}
+
+
+/*********INSCRIPTION*********/
+
+#formregister {
+    width: 350px;
+    height: 215px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputregister {
+    width: 100%;
+}
